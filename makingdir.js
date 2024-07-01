@@ -1,14 +1,19 @@
-const fs = require('fs');
-fs.mkdir('dirtobedeleted', (err) => {
-    if(err) {console.log(err);}
-    console.log("done");
-})
-fs.rmdir( 'dirtobedeleted', (err) => {
-    if(err) {console.log(err);}
-    console.log("done");
-});
-const newName='filee.txt'
-fs.renameSync('file.txt', newName, (err) => {
-    if(err) { console.log(err);} 
-    console.log("done");
-})
+const fs = require("fs").promises;
+
+async function main() {
+  try {
+    await fs.mkdir("dirtobedeleted");
+    console.log("Directory created");
+
+    const newName = "filee.txt";
+    await fs.rename("file.txt", newName);
+    console.log("File renamed");
+
+    await fs.rmdir("dirtobedeleted");
+    console.log("Directory removed");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+main();
