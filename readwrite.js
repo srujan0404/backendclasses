@@ -1,7 +1,7 @@
 const fs = require('fs');
 const content = 'hehe';
 const append="class is going on";
-/*
+
 const fs = require('fs');
 
 fs.readFile('file.txt', 'utf8', (error, data) => {
@@ -20,7 +20,6 @@ fs.readFile('file.txt', 'utf8', (error, data) => {
         console.log('File content:', content);
     });
 });
-*/
 
 try {
     const data = fs.readFileSync('file.txt', 'utf8');
